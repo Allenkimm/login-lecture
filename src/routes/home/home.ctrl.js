@@ -1,10 +1,5 @@
 "use strict";
 
-const { unsubscribe } = require(".");
-
-
-
-
 const output = {
     home: (req, res)=> {
         res.render("home/index");
@@ -29,13 +24,13 @@ const process = {
             const idx = users.id.indexOf(id);
             if (users.psword[idx] === psword) {
                 return res.json({
-                    succes: true,
+                    success: true,
                 });
             }
         }
         
         return res.json({
-            succes: false,
+            success: false,
             msg: "로그인에 실패",
 
         });
@@ -46,3 +41,5 @@ module.exports = {
    output,
    process,
 };
+
+
