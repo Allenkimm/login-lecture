@@ -1,7 +1,8 @@
 "use strict";
 
-const UserStorage = require("../../models/UserStorage");
+
 const User = require("../../models/User");
+
 
 const output = {
     home: (req, res)=> {
@@ -10,6 +11,9 @@ const output = {
     login:  (req,res) => {
         res.render("home/login");
     },
+    register: (req,res) => {
+        res.render("home/register");
+    }
 };
 
 
@@ -18,23 +22,22 @@ const process = {
     login: (req, res) => {
        const user = new User(req.body);
         const response = user.login();
-        console.log(response);
-    // const users = UserStorage.getUsers("id","psword", "name");
+        return res.json(response);
     
-    // // new 라는 
-    // //const users = new UserStorage();
-    // // users.getUsers()
+   
+    // const users = new UserStorage();
+    // users.getUsers()
 
-    //     const response = {};
-    //     if(users.id.includes(id)){
-    //         const idx = users.id.indexOf(id);
-    //         if (users.psword[idx] === psword) {
-    //             response.success  = true;
-    //             return res.json(response);
+        // const response = {};
+        // if(users.id.includes(id)){
+        //     const idx = users.id.indexOf(id);
+        //     if (users.psword[idx] === psword) {
+        //         response.success  = true;
+        //         return res.json(response);
                     
-    //         }
+        //     }
             
-    //     }
+        // }
         
         
         // response.success = false;
@@ -42,8 +45,8 @@ const process = {
         // return res.json(response);
 
         
-    },
-};
+    }
+}
 
 module.exports = {
    output,

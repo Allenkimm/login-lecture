@@ -23,6 +23,7 @@ function login() {
    })
     .then((res) => res.json())
     .then((res)=> {
+        console.log(res);
         if (res.success) {
             location.href= "/";
         }   else{
